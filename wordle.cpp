@@ -1,4 +1,8 @@
 #include <iostream>
+#include <ostream>
+#include <fstream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -24,6 +28,22 @@ int main(){
     12. If no then exit the program
     *
     */
+    ifstream FS;
+    FS.open("5LetterWords.txt");
+    
+    if(FS.fail()){
+        cout << "Invalid file" << endl;
+        return 0;
+    }
 
+    string word;
+    vector<string> list;
+
+    while(FS >> word){
+        list.push_back(word);
+    }
+
+    FS.close();
+    
     return 0;
 }
