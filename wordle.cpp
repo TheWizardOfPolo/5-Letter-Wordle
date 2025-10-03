@@ -37,11 +37,23 @@ int main(){
     }
 
     string word;
+    int totalWordNum = 0;
     vector<string> list;
 
     while(FS >> word){
         list.push_back(word);
+        totalWordNum++;
     }
+
+    srand(time(0));
+    int randomWord = rand() % totalWordNum;
+    cout << list.at(randomWord) << endl;
+
+    cout << "Welcome to 5 letter Wordle!" << endl;
+
+    cout << "Pick a letter from a-z(only lowercase): ";
+
+
 
     FS.close();
     
