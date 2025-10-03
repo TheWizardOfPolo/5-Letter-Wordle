@@ -3,7 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-
+#include "wordle.hpp"
 using namespace std;
 
 int main(){
@@ -46,14 +46,18 @@ int main(){
     }
 
     srand(time(0));
+    int totalTries = 6;
+    string response;
     int randomWord = rand() % totalWordNum;
-    cout << list.at(randomWord) << endl;
-
+    word = list.at(randomWord);
+    
     cout << "Welcome to 5 letter Wordle!" << endl;
-
-    cout << "Pick a letter from a-z(only lowercase): ";
-
-
+    while(totalTries > 0){
+        cout << "Input a 5 letter word (only lowercase): ";
+        cin >> response;
+        wordle word;
+        word.guessingWord(response, list);
+    }
 
     FS.close();
     
